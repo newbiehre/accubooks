@@ -1,0 +1,5 @@
+header_1 = ['Post date', 'Trans date', 'Unnamed: 0', 'Description of transaction', 'Amount(HKD)']
+header_2 = ['Post date', 'Trans date', 'Description of transaction', 'Amount    (HKD)']
+header_3 = ['Post date', 'Trans date', 'Unnamed: 0', 'Description of transaction', 'Unnamed: 1', 'Amount', '(HKD)']
+header_4 = ['Post date', 'Trans date', 'Description of transaction', 'Amount', '(HKD)']
+personal_details = ["Cardholder's name", 'Account number', 'Statement date']
