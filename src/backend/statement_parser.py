@@ -156,7 +156,8 @@ class StatementParser:
                     tx = Expense(
                         trans_date=trans_dates[index],
                         year=self.year,
-                        merchant_name=filtered_merchants[index],
+                        merchant_name=filtered_merchants[index] if "*For credit card" not in
+                                                                   filtered_merchants[index] else "Finance Charge",
                         currency_code=self.CURRENCY_CODE,
                         expense_amount=format_amount(amount),
                         location=self.CITY,
