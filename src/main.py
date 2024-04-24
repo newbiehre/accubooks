@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     try:
         logger.info(
-            f"Global variables set (size: {len([BASE_PATH, OUTPUT_PATH, FILE_PATH, 
+            f"Global variables set (size: {len([BASE_PATH, OUTPUT_PATH, FILE_PATH,
                                                 HSBC_TEMPLATE_EXPENSE_DETAIL, GENERATE_DEBUG_JSON])})")
         logger.info(f"Expense details to watch: (size: {HSBC_TEMPLATE_EXPENSE_DETAIL})")
         AccuBooksApp()

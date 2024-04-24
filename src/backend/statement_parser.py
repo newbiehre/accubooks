@@ -130,10 +130,18 @@ class StatementParser:
 
             for word in unfiltered_merchants:
                 merchant = remove_multiple_spaces(word)
-                if any(keep_word in merchant for keep_word in HSBC_TEMPLATE_EXPENSE_DETAIL):
-                    prev_merch = filtered_merchants.pop()
-                    new_merch = prev_merch + "; " + merchant
-                    filtered_merchants.append(new_merch)
+                if any(word in merchant for word in HSBC_TEMPLATE_EXPENSE_DETAIL):
+                    if len(filtered_merchants) > 0:
+                        prev_merch = filtered_merchants.pop()
+                        modified_merch = prev_merch + "; " + merchant
+                        filtered_merchants.append(modified_merch)
+                    else:
+                        prev_merch = self.key_value_pair["transactions"].pop()
+                        logger.info(f"Using new df: filtered_merchants is empty. "
+                                    f"Taking last df's last expense ({prev_merch.merchant_name})")
+                        prev_merch.merchant_name = prev_merch.merchant_name + "; " + merchant
+                        self.key_value_pair["transactions"].append(prev_merch)
+                        logger.info(f"Replaced last df's last expense with new name ({prev_merch.merchant_name})")
                 else:
                     filtered_merchants.append(merchant)
 

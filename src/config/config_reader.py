@@ -36,7 +36,8 @@ def validate_initialization():
 
 
 def get_hsbc_template_expense_details():
-    return config.get(HSBC_TEMPLATE_SECTION, EXPENSE_DETAIL).split(",")
+    items = config.get(HSBC_TEMPLATE_SECTION, EXPENSE_DETAIL).split(",")
+    return [item.strip() for item in items]
 
 
 def generate_debug_json():
